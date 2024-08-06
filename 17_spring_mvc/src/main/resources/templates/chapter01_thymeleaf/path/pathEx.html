@@ -45,7 +45,7 @@
 	<!-- before : <p><a href="/board/boardDetail?boardId=10000">게시글확인</a></p> -->
 	<p><a th:href="@{/board/boardDetail(boardId=10000)}">게시글확인</a></p>
 	<!-- before : <p><a href="/webtoon/detail?titleId=100&no=1&week=mon">웹툰확인</a></p> -->
-	<p><a th:href="@{/webtoon/detail(titleId=100 , no=1 , week=mon)}">웹툰확인</a></p>
+	<p><a th:href="@{/webtoon/detail(titleId=100 , no=1 , tab=mon)}">웹툰확인</a></p>
 	<hr/>
 
 
@@ -61,7 +61,7 @@
 	<p><a href="/board/boardDetail/10000">게시글확인</a></p>
 	<p><a th:href="@{/board/boardDetail/{boardId}(boardId=10000)}">게시글확인</a></p>
 	<p><a href="/webtoon/detail?titleId=100&no=1&week=mon">웹툰확인</a></p>
-	<p><a th:href="@{/webtoon/detail/{titleId}/{no}/{tab}(titleId=100 , no=1 , week=mon)}">웹툰확인</a></p>
+	<p><a th:href="@{/webtoon/detail/{titleId}/{no}/{tab}(titleId=100 , no=1 , tab=mon)}">웹툰확인</a></p>
 	<hr/>
 	
 	
