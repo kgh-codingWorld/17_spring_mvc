@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> <!-- xmlns:th="http://www.thymeleaf.org" -->
+<head>
+<meta charset="UTF-8">
+<title>controller to view</title>
+</head>
+<body>
+
+	<h1>단일 데이터</h1>
+	<p th:text="${string}"></p>
+	<p th:text="${int}"></p>
+	<p th:text="${double}"></p>
+	<p th:text="${boolean}"></p>
+	<p th:text="${date}"></p>
+	<hr/>
+	
+	<h1>DTO</h1>
+	<p th:text="${dto}"></p>
+	<hr/>
+	
+	<h1>DTO List</h1>
+	<p th:text="${dtoList}"></p>
+	<hr/>
+	
+	<h1>Map</h1>
+	<p th:text="${map}"></p>
+	<hr/>
+	
+	<h1>Map List</h1>
+	<p th:text="${mapList}"></p>
+	
+</body>
+</html>
