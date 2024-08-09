@@ -159,13 +159,13 @@ public class ControlStatementPracticeController {
 		*/
 		
 
-		return "";
+		return "chapter01_thymeleaf/controlStatement/controlEx10_practice";
 		
 	}
 	
 	
 	@GetMapping("/ex11_practice")
-	public String ex11_practice() {
+	public String ex11_practice(Model model) {
 		
 		/*
 		  
@@ -198,14 +198,16 @@ public class ControlStatementPracticeController {
 			
 		*/
 		String[] productIds = {"0x001", "0x002", "0x003", "0x004", "0x005", "0x006", "0x007"};
+		
+		model.addAttribute("productIds", productIds);
 
-		return "";
+		return "chapter01_thymeleaf/controlStatement/controlEx11_practice";
 		
 	}
 	
 	
 	@GetMapping("/ex12_practice")
-	public String ex12_practice() {
+	public String ex12_practice(Model model) {
 		
 		/*
 		  
@@ -239,14 +241,16 @@ public class ControlStatementPracticeController {
 		*/
 		String[] productIds = {"0x001", "0x002", "0x003", "0x004", "0x005", "0x006", "0x007"};
 		
+		model.addAttribute("productIds", productIds);
+		
 
-		return "";
+		return "chapter01_thymeleaf/controlStatement/controlEx12_practice";
 		
 	}
 	
 	
 	@GetMapping("/ex13_practice")
-	public String ex13_practice() {
+	public String ex13_practice(Model model) {
 		
 		/*
 		  
@@ -275,13 +279,15 @@ public class ControlStatementPracticeController {
 		
 		List<ProductDTO> productList = supposeDAO.getDTOList();
 		
-		return "";
+		model.addAttribute("productList", productList);
+		
+		return "chapter01_thymeleaf/controlStatement/controlEx13_practice";
 		
 	}
 	
 	
 	@GetMapping("/ex14_practice")
-	public String ex14_practice() {
+	public String ex14_practice(Model model) {
 		
 		/*
 		  
@@ -309,14 +315,16 @@ public class ControlStatementPracticeController {
 		*/
 		
 		List<ProductDTO> productList = supposeDAO.getDTOList();
+		
+		model.addAttribute("productList", productList);
 
-		return "";
+		return "chapter01_thymeleaf/controlStatement/controlEx14_practice";
 		
 	}
 	
 	
 	@GetMapping("/ex15_practice")
-	public String ex15_practice() {
+	public String ex15_practice(Model model) {
 		
 		/*
 		  
@@ -347,13 +355,15 @@ public class ControlStatementPracticeController {
 		
 		List<Map<String,Object>> productMapList = supposeDAO.getMapList();
 		
-		return "";
+		model.addAttribute("productMapList", productMapList);
+		
+		return "chapter01_thymeleaf/controlStatement/controlEx15_practice";
 		
 	}
 	
 	
 	@GetMapping("/ex16_practice")
-	public String ex16_practice() {
+	public String ex16_practice(Model model) {
 		
 		/*
 		  
@@ -383,6 +393,8 @@ public class ControlStatementPracticeController {
 		*/
 		
 		List<Map<String,Object>> productMapList = supposeDAO.getMapList();
+		
+		model.addAttribute("productMapList", productMapList);
 		
 		return "";
 		
