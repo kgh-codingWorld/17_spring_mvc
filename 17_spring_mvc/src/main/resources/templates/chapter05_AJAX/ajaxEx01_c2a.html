@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>controllerToAjax</title>
+<script th:src="@{/jquery/jquery-3.7.1.min.js}"></script>
+<script>
+
+	$().ready(function(){
+		
+		// 1) 단일데이터 return
+		$("#btn1").click(function(){
+			
+			$.ajax({
+				
+				url : "/c2a/ex01",
+				type : "post",
+				success : function(data) {
+					/*
+						
+						[형식]
+					
+						파라메타
+						
+					*/
+					console.log(data);
+					$("#printData").html(data);
+				}
+			
+			});
+			
+		});
+		
+		
+		// 2) DTO return
+		$("#btn2").click(function(){
+			
+			$.ajax({
+				
+				url : "/c2a/ex02",
+				type : "post",
+				success : function(data) {
+					
+					/*
+					
+						 [DTO 사용형식 ]
+
+						파라메타.필드
+						
+					*/
+					console.log(data);
+					console.log(data.productNm);
+					console.log(data.price);
+				}
+				
+			});
+			
+		});
+		
+		
+		// 3) List<DTO> return
+		$("#btn3").click(function(){
+					
+			$.ajax({
+				
+				url : "/c2a/ex03",
+				type : "post",
+				success : function() {
+					
+					/*
+					
+						[ List<DTO> 사용형식 ]	
+					
+						$(파라메타).each(function{
+							${this.필드}
+						});
+						
+					*/
+
+				}
+				
+			});
+					
+		});
+		
+		
+		// 4) Map return
+		$("#btn4").click(function(){
+			
+			$.ajax({
+				
+				url : "/c2a/ex04",
+				type : "post",
+				success : function() {
+					
+					/*
+					
+						[ Map 사용형식 ]	
+	
+						파라메타.키
+						
+					*/
+					
+				}
+				
+			});
+			
+		});
+	
+		
+		// 5) List<Map> return
+		$("#btn5").click(function(){
+			
+			$.ajax({
+				
+				url : "/c2a/ex05",
+				type : "post",
+				success : function() {
+					
+					/*
+					
+						[ List<Map> 사용형식 ]	
+					
+						$(파라메타).each(function{
+							${this.키}
+						});
+					
+					*/
+					
+				}
+				
+			});
+			
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<fieldset>
+		<legend>ControllerToAjax</legend>
+	    <input type="button" id="btn1" value="1) 단일데이터" >
+	    <input type="button" id="btn2" value="2) DTO" >
+	    <input type="button" id="btn3" value="3) List(DTO)" >
+	    <input type="button" id="btn4" value="4) map" >
+	    <input type="button" id="btn5" value="5) List(map)" >
+	</fieldset>
+	<fieldset>
+	    <div id="printData" >
+	    
+	    </div>
+	</fieldset>
+</body>
+</html>
