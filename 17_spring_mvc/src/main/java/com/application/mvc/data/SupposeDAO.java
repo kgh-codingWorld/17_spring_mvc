@@ -104,6 +104,7 @@ public class SupposeDAO {
 	
 	
 	// Map 타입 예시
+	// Map을 사용하는 이유 : 1) Table Join 2) 형식 무근본
 	public Map<String,Object> getMap() {
 		
 		Map<String,Object> productMap = new HashMap<String, Object>();

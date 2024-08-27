@@ -51,6 +51,52 @@
 					console.log(data);
 					console.log(data.productNm);
 					console.log(data.price);
+					
+					// 화면출력 방식1
+					let dataView = "<table border='1'>";
+					dataView += "<tr>";
+					dataView += "<th>productId</th>";
+					dataView += "<th>productNm</th>";
+					dataView += "<th>price</th>";
+					dataView += "<th>deliveryPrice</th>";
+					dataView += "<th>enrollDt</th>";
+					dataView += "<th>brandId</th>";
+					dataView += "</tr>";
+					dataView += "<tr>";
+					dataView += "<td>" + data.productId + "</td>";
+					dataView += "<td>" + data.productNm + "</td>";
+					dataView += "<td>" + data.price + "</td>";
+					dataView += "<td>" + data.deliveryPrice + "</td>";
+					dataView += "<td>" + data.enrollDt + "</td>";
+					dataView += "<td>" + data.brandId + "</td>";
+					dataView += "</tr>";
+					dataView += "</table>";
+					
+					//$("#printData").html(dataView);
+					
+					// 화면출력 방식2 (백틱 사용 : 멀티라인 문자열)
+					let viewData = `
+						<table border='1'>
+							<tr>
+								<th>productId</th>
+								<th>productNm</th>
+								<th>price</th>
+								<th>deliveryPrice</th>
+								<th>enrollDt</th>
+								<th>brandId</th>
+							</tr>
+							<tr>
+								<td>${data.productId}</td>
+								<td>${data.productNm}</td>
+								<td>${data.price}</td>
+								<td>${data.deliveryPrice}</td>
+								<td>${data.enrollDt}</td>
+								<td>${data.brandId}</td>
+							</tr>
+						</table>
+					`;
+					
+					$("#printData").html(viewData);
 				}
 				
 			});
@@ -65,18 +111,43 @@
 				
 				url : "/c2a/ex03",
 				type : "post",
-				success : function() {
+				success : function(dataList) {
 					
 					/*
 					
 						[ List<DTO> 사용형식 ]	
 					
-						$(파라메타).each(function{
+						$(파라메타).each(function(){
 							${this.필드}
 						});
 						
 					*/
 
+					console.log(dataList);
+					
+					let viewData = `
+						<table border='1'>
+							<tr>
+								<th>productId</th>
+								<th>productNm</th>
+								<th>price</th>
+								<th>deliveryPrice</th>
+								<th>enrollDt</th>
+								<th>brandId</th>
+							</tr>`;
+							$(dataList).each(function(){
+								viewData += `<tr>
+												<td>${this.productId}</td>
+												<td>${this.productNm}</td>
+												<td>${this.price}</td>
+												<td>${this.deliveryPrice}</td>
+												<td>${this.enrollDt}</td>
+												<td>${this.brandId}</td>
+											</tr>`;
+							});
+						viewData += `</table>`;
+					
+					$("#printData").html(viewData);
 				}
 				
 			});
@@ -91,7 +162,7 @@
 				
 				url : "/c2a/ex04",
 				type : "post",
-				success : function() {
+				success : function(dataMap) {
 					
 					/*
 					
@@ -100,7 +171,40 @@
 						파라메타.키
 						
 					*/
+					console.log(dataMap);
 					
+					let viewData = `
+						<table border='1'>
+							<tr>
+								<th>productId</th>
+								<th>productNm</th>
+								<th>price</th>
+								<th>deliveryPrice</th>
+								<th>enrollDt</th>
+								<th>brandId</th>
+								<th>addTax</th>
+								<th>totalPrice</th>
+								<th>brandNm</th>
+								<th>enteredDt</th>
+								<th>activeYn</th>
+							</tr>
+							<tr>
+								<td>${dataMap.productId}</td>
+								<td>${dataMap.productNm}</td>
+								<td>${dataMap.price}</td>
+								<td>${dataMap.deliveryPrice}</td>
+								<td>${dataMap.enrollDt}</td>
+								<td>${dataMap.brandId}</td>
+								<td>${dataMap.addTax}</td>
+								<td>${dataMap.totalPrice}</td>
+								<td>${dataMap.brandNm}</td>
+								<td>${dataMap.enteredDt}</td>
+								<td>${dataMap.activeYn}</td>
+							</tr>
+							</table>
+						`;
+					
+					$("#printData").html(viewData);
 				}
 				
 			});
@@ -115,7 +219,7 @@
 				
 				url : "/c2a/ex05",
 				type : "post",
-				success : function() {
+				success : function(dataMapList) {
 					
 					/*
 					
@@ -126,7 +230,41 @@
 						});
 					
 					*/
+					console.log(dataMapList);
 					
+					let viewData = `
+						<table border='1'>
+							<tr>
+								<th>productId</th>
+								<th>productNm</th>
+								<th>price</th>
+								<th>deliveryPrice</th>
+								<th>enrollDt</th>
+								<th>brandId</th>
+								<th>addTax</th>
+								<th>totalPrice</th>
+								<th>brandNm</th>
+								<th>enteredDt</th>
+								<th>activeYn</th>
+							</tr>`;
+							$(dataMapList).each(function(){
+								viewData += `<tr>
+												<td>${this.productId}</td>
+												<td>${this.productNm}</td>
+												<td>${this.price}</td>
+												<td>${this.deliveryPrice}</td>
+												<td>${this.enrollDt}</td>
+												<td>${this.brandId}</td>
+												<td>${this.addTax}</td>
+												<td>${this.totalPrice}</td>
+												<td>${this.brandNm}</td>
+												<td>${this.enteredDt}</td>
+												<td>${this.activeYn}</td>
+											</tr>`;
+							});
+						viewData += `</table>`;
+					
+					$("#printData").html(viewData);
 				}
 				
 			});

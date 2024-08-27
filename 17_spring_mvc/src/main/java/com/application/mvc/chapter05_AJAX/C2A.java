@@ -1,5 +1,8 @@
 package com.application.mvc.chapter05_AJAX;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,21 +58,24 @@ public class C2A {
 	// 3) List<DTO> return
 	@PostMapping("/ex03")
 	@ResponseBody // @ResponseBody를 사용해서 데이터를 전송한다.
-	public void ex03() {
+	public List<ProductDTO> ex03() {
+		return supposeDAO.getDTOList();
 	}
 	
 	
 	// 4) Map return 
 	@PostMapping("/ex04")
 	@ResponseBody // @ResponseBody를 사용해서 데이터를 전송한다.
-	public void ex04() {
+	public Map<String, Object> ex04() {
+		return supposeDAO.getMap();
 	}
 
 	
 	// 5) List<Map> return
 	@PostMapping("/ex05")
 	@ResponseBody // @ResponseBody를 사용해서 데이터를 전송한다.
-	public void ex05() {
+	public List<Map<String, Object>> ex05() {
+		return supposeDAO.getMapList();
 	}
 	
 }
