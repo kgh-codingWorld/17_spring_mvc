@@ -3,9 +3,12 @@ package com.application.mvc.chapter06_REST_API;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,24 +32,26 @@ public class RestAPIController { // 화면이동용 아님!!!!
 	
 	@GetMapping("/{productId}") // 상세 데이터 요청 (@PathVariable 어노테이션으로 데이터를 전달받는다.)
 	public ProductDTO getProductDetail(@PathVariable("productId") long productId) {
-		
-		System.out.println("productId : " + productId);
-		
+		System.out.println("(@GetMapping)productId : " + productId);
 		return supposeDAO.getDTO();
 	}
 	
 	@PostMapping // 데이터 추가 (@RequestBody 어노테이션으로 데이터를 전달받는다.)
-	public void createProduct() {
+	public void createProduct(@RequestBody ProductDTO productDTO) {
+		System.out.println("(@PostMapping)productDTO : " + productDTO);
 	}
 	
 	
-	// 데이터 수정 (@PathVariable 어노테이션으로 ID를 전달받는다.)
-	public void updateProduct() { // @RequestBody 어노테이션으로 데이터를 전달받는다.
+	@PutMapping("/{productId}")// 데이터 수정 (@PathVariable 어노테이션으로 ID를 전달받는다.)
+	public void updateProduct(@PathVariable("productId") long productId, @RequestBody ProductDTO productDTO) { // @RequestBody 어노테이션으로 데이터를 전달받는다.
+		System.out.println("(@PutMapping)productId : " + productId);
+		System.out.println("(@PutMapping)productDTO : " + productDTO);
 	}
 	
 	
-	// 데이터 삭제 (@PathVariable 어노테이션으로 데이터를 전달받는다.)
-	public void deleteProduct() {
+	@DeleteMapping("/{productId}")// 데이터 삭제 (@PathVariable 어노테이션으로 데이터를 전달받는다.)
+	public void deleteProduct(@PathVariable("productId") long productId) {
+		System.out.println("(@DeleteMapping)" + productId + "가 삭제되었습니다.");
 	}
 	
 }
