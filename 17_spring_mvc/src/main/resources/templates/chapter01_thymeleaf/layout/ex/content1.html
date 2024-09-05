@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{/chapter01_thymeleaf/layout/ex/layout.html}">
+<head>
+<meta charset="UTF-8">
+<title>게시글 작성</title>
+
+	<!-- 
+
+	# import
+	
+	- 공통적용을 위한 script , jquery , css , editor 및 웹 리소스 경로를 레이아웃에 정의하여  
+	   리소스 관리가 훨씬 간단해지고 리소스의 import를 재사용하여 개발 효율성이 크게 향상된다.
+	
+	 -->
+
+</head>
+<body>
+	
+<div layout:fragment="content">
+
+	<h3>(content1) 커뮤니티 게시글 추가하기</h3>
+	<table border="1" style="width:600px;" >
+		<colgroup>
+			<col width="20%">
+			<col width="80%">
+		</colgroup>
+		<tr>
+			<td align="center">작성자</td>
+			<td><input type="text" id="writer" name="writer" size="70"/></td>
+		</tr>
+		<tr >
+			<td align="center">제목</td>
+			<td><input type="text" id="subject" name="subject" size="70"/></td>
+		</tr>
+		<tr>
+			<td align="center">이메일</td>
+			<td><input type="email" id="email" name="email" size="70"/></td>
+		</tr>
+		<tr>
+			<td align="center">비밀번호</td>
+			<td><input type="password" id="password" name="password" size="70"/></td>
+		</tr>
+		<tr>
+			<td align="center">글내용</td>
+			<td><textarea  rows="10" cols="50" id="content" name="content" ></textarea></td>
+		</tr>
+		<tr align="center">
+			<td colspan="2">
+				<input type="submit" value="작성하기" />
+				<input type="reset"  value="다시작성" />
+			</td>
+		</tr>
+	</table>
+</div>
+	
+
+</body>
+</html>
